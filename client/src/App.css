@@ -17,6 +17,7 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: #93fe83;
+  padding-bottom: 10px;
 }
 
 .inputs input {
@@ -37,7 +38,47 @@ body {
   font-size: 15px;
 }
 
-.inputs button:hover {
+button:hover {
   cursor: pointer;
   background-color: #0e7c08;
+}
+
+.friendContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.friend {
+  width: 400px;
+  height: 60px;
+  background-color: #13a90b;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+}
+
+.friendlist h3 {
+  margin-left: 15px;
+}
+
+.friendlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.friendContainer button {
+  width: 80px;
+  height: 60px;
+  border: 2px solid black;
+  background-color: #13a90b;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#border {
+  border-left: none;
 }
