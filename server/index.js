@@ -28,6 +28,21 @@ app.get('/friends', (req, res) => {
     })
 })
 
+app.put('/update', async (req, res) => {
+    const newAge = req.body.newAge
+    const id = req.body._id
+
+    try {
+        await FriendModel.findById(id, (err, friendToUpdate) => {
+            friendToUpdate.age = newAge
+            friendToUpdate.save()
+        })
+    } catch (error) {
+        console.log(error);
+    }
+    res.send('updated')
+})
+
 app.listen(3001, () => {
     console.log("You are connected");
 });
