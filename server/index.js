@@ -30,7 +30,7 @@ app.get('/friends', (req, res) => {
 
 app.put('/update', async (req, res) => {
     const newAge = req.body.newAge
-    const id = req.body._id
+    const id = req.body.id
 
     try {
         await FriendModel.findById(id, (err, friendToUpdate) => {
