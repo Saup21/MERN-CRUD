@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Friends({ friends, updateFriend }) {
+function Friends({ friends, updateFriend, deleteFriend }) {
 
     return (
         <div className="friendlist">
@@ -13,7 +13,7 @@ function Friends({ friends, updateFriend }) {
                                 <h3>Age: {friend.age}</h3>
                             </div>
                             <button onClick={() => { updateFriend(friend._id) }} >Update</button>
-                            <button id="border">X</button>
+                            <button id="border" onClick={() => { deleteFriend(friend._id) }} >X</button>
                         </div>
                     )
                 })

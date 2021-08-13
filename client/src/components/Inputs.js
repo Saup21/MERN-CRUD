@@ -22,14 +22,23 @@ function Inputs() {
             .catch(() => { alert(`it failed`) })
     }
 
-    const updateFriend = (id) => {
+    const updateFriend = id => {
         const newAge = prompt('Enter new age....')
         axios.put('http://127.0.0.1:3001/update', { id, newAge })
             .then(() => {
                 setFriendlist(friendlist.map(friend => {
                     return friend._id === id ? { _id: id, name: friend.name, age: newAge } : friend
                 }))
-        })
+            })
+    }
+
+    const deleteFriend = id => {
+        axios.delete(`http://127.0.0.1:3001/${id}/delete`)
+            .then(() => {
+                setFriendlist(friendlist.filter(friend => {
+                    return friend._id !== id
+                }))
+            })
     }
 
     return (
@@ -39,7 +48,7 @@ function Inputs() {
                 <input type="number" placeholder="age...." onChange={(e) => setAge(e.target.value)} />
                 <button onClick={addFriend} >Add Friend</button>
             </div>
-            <Friends friends={friendlist} updateFriend={updateFriend} />
+            <Friends friends={friendlist} updateFriend={updateFriend} deleteFriend={deleteFriend} />
         </div>
     )
 }
