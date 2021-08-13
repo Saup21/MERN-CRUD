@@ -15,7 +15,7 @@ app.post('/insert', async (req, res) => {
     const age = req.body.age
     const friend = new FriendModel({ name, age });
     await friend.save()
-    res.send(`${friend.name}'s data inserted`)
+    res.send(friend)
 });
 
 app.get('/friends', (req, res) => {

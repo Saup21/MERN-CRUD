@@ -18,7 +18,7 @@ function Inputs() {
 
     const addFriend = () => {
         axios.post('http://127.0.0.1:3001/insert', { name, age })
-            .then(() => setFriendlist([...friendlist, { name, age }]))
+            .then((res) => setFriendlist([...friendlist, { _id: res.data._id, name, age }]))
             .catch(() => { alert(`it failed`) })
     }
 
